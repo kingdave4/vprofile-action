@@ -98,7 +98,7 @@ jobs:
         run: cat ~/.kube/config
 
       - name: Login to ECR
-        run: kubectl create secret docker-registry recred --docker-server=${{ secrets.REGISTRY}} --docker-username=AWS --docker-password=$(aws ecr get-login-password)
+        run: kubectl delete secret docker-registry recred --docker-server=${{ secrets.REGISTRY}} --docker-username=AWS --docker-password=$(aws ecr get-login-password)
         
       - name: Deploy Helm
         uses: bitovi/github-actions-deploy-eks-helm@v1.2.8
@@ -111,5 +111,5 @@ jobs:
           chart-path: helm/vprofilecharts
           namespace: default
           values: appimage=${{ secrets.REGISTRY }}/${{ env.ECR_REPOSITORY }},apptag=${{ github.run_number }}
-          name: vprofile-stack    
+          name: vprofile-stack
 #
