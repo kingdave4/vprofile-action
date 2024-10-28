@@ -7,10 +7,10 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: vprofile.kubevprof.kingdavedevopsproject.ca
+  - host: vprofile.kingdavedevopsproject.ca
     http:
       paths:
-      - path: /
+      - path: /login
         pathType: Prefix
         backend:
           service:
