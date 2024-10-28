@@ -10,7 +10,7 @@ spec:
   - host: vprofile.kingdavedevopsproject.ca
     http:
       paths:
-      - path: /login
+      - path: /
         pathType: Prefix
         backend:
           service:
